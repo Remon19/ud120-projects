@@ -30,15 +30,51 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
-
-
-
-
-
-
-
-
+###########################KNearest-Neighbors########################
+from sklearn.neighbors import KNeighborsClassifier
+from time import time
+clf = KNeighborsClassifier(n_neighbors=1)
+print('fitting the data...')
+t0 = time()
+clf.fit(features_train,labels_train)
+print('Training time: ', round(time()-t0,3), 'sec.')
+t0 = time()
+accuracy = clf.score(features_test,labels_test)
+print("Predicting Time:", round(time()-t0, 3), "sec.")
+print('accuracy: ',round(accuracy,3))
 try:
     prettyPicture(clf, features_test, labels_test)
 except NameError:
     pass
+########################AdaBoost##################################
+# from sklearn.ensemble import AdaBoostClassifier
+# from time import time
+# clf = AdaBoostClassifier(n_estimators=100)
+# print('fitting the data...')
+# t0 = time()
+# clf.fit(features_train,labels_train)
+# print('Training time: ', round(time()-t0,3), 'sec.')
+# t0 = time()
+# accuracy = clf.score(features_test,labels_test)
+# print("Predicting Time:", round(time()-t0, 3), "sec.")
+# print('accuracy: ',round(accuracy,3))
+# try:
+#     prettyPicture(clf, features_test, labels_test)
+# except NameError:
+#     pass
+###########################Random Forests##############################################
+# from sklearn.ensemble import RandomForestClassifier
+# from time import time
+# clf = RandomForestClassifier(n_estimators=100,min_samples_split=40)
+# print('fitting the data...')
+# t0 = time()
+# clf.fit(features_train,labels_train)
+# print('Training time: ', round(time()-t0,3), 'sec.')
+# t0 = time()
+# accuracy = clf.score(features_test,labels_test)
+# print("Predicting Time:", round(time()-t0, 3), "sec.")
+# print('accuracy: ',round(accuracy,3))
+# try:
+#     prettyPicture(clf, features_test, labels_test)
+# except NameError:
+#     pass

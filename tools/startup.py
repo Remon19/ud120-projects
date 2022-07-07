@@ -30,7 +30,7 @@ print("Enron dataset should be last item on the list, along with its current siz
 print("Download will complete at about 1.82 GB")
 
 import requests
-url = "https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz"
+url = 'https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz'
 filename = "../enron_mail_20150507.tar.gz"
 with open(filename, "wb") as f:
     r = requests.get(url)

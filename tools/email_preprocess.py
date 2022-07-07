@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
-import joblib
+import numpy as np
+print(np.__file__)
+import joblib as j
 import numpy
 
 from sklearn.model_selection import train_test_split
@@ -28,11 +29,11 @@ def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/ema
     ### the words (features) and authors (labels), already largely preprocessed
     ### this preprocessing will be repeated in the text learning mini-project
     authors_file_handler = open(authors_file, "rb")
-    authors = joblib.load(authors_file_handler)
+    authors = j.load(authors_file_handler)
 
 
     words_file_handler = open(words_file, "rb")
-    word_data = joblib.load(words_file_handler)
+    word_data = j.load(words_file_handler)
 
     ### test_size is the percentage of events assigned to the test set
     ### (remainder go into training)

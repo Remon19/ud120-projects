@@ -18,13 +18,22 @@ from email_preprocess import preprocess
 ### and testing datasets, respectively
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
-
+print("number of features: ",len(features_train[0]))
 
 
 
 #########################################################
 ### your code goes here ###
-
+from sklearn.tree import DecisionTreeClassifier
+DT_clf = DecisionTreeClassifier(min_samples_split=40)
+print('fitting the data...')
+t0 = time()
+DT_clf.fit(features_train,labels_train)
+print('Training time: ', round(time()-t0,3), 'sec.')
+t0 = time()
+accuracy = DT_clf.score(features_test,labels_test)
+print("Predicting Time:", round(time()-t0, 3), "sec.")
+print('accuracy: ',round(accuracy,3))
 
 #########################################################
 
